@@ -52,7 +52,12 @@ namespace CognitiveServicesVisionLibrary
                 var results = await _visionHelper.AnalyzeImage(file);
                 //var ocrResults = await _visionHelper.AnalyzeImageForText(file, "en");
                 var output = _visionHelper.ExtractOutput(results);
-                result = new InteractionsResult { Description = output, Image = bitmap };
+                result = new InteractionsResult {
+                    Description = output,
+                    Image = bitmap,
+                    AnalysisResult = results,
+                    //OcrResults = ocrResults
+                };
             }
 
             return result;

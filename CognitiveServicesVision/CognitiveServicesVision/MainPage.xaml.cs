@@ -1,4 +1,5 @@
 ﻿using CognitiveServicesVisionLibrary;
+using Newtonsoft.Json;
 using System;
 using Windows.Media.SpeechSynthesis;
 using Windows.UI.Xaml;
@@ -11,29 +12,32 @@ namespace CognitiveServicesVision
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        CognitiveVisionHelper _visionHelper;
-        InteractionsHelper _interactionsHelper;
+        private readonly InteractionsHelper _interactionsHelper;
 
         public MainPage()
         {
             this.InitializeComponent();
 
-            _visionHelper = new CognitiveVisionHelper();
             _interactionsHelper = new InteractionsHelper();
         }
 
         private async void CameraButton_Click(object sender, RoutedEventArgs e)
         {
             var output = await _interactionsHelper.RecognizeUsingCamera();
-            ImageToAnalyze.Source = output.Image;
-            Speak(output.Description);
+            UpdateUI(output);
         }
 
         private async void AnalyzeButton_Click(object sender, RoutedEventArgs e)
         {
             var output = await _interactionsHelper.RecognizeFromFile();
+            UpdateUI(output);
+        }
+
+        private void UpdateUI(InteractionsResult output)
+        {
             ImageToAnalyze.Source = output.Image;
             Speak(output.Description);
+            ResultsTextBlock.Text = JsonConvert.SerializeObject(output);
         }
 
         private async void Speak(string Text)

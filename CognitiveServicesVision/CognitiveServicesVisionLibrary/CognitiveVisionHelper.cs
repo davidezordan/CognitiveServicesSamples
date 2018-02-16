@@ -17,8 +17,13 @@ namespace CognitiveServicesVisionLibrary
 
         public CognitiveVisionHelper()
         {
-            _subscriptionKey = "SubscriptionKey";
-            _apiRoot = "ApiKey";
+            _subscriptionKey = "SubKey";
+            _apiRoot = "ApiRoot";
+        }
+
+        private VisionServiceClient GetVisionServiceClient()
+        {
+            return new VisionServiceClient(_subscriptionKey, _apiRoot);
         }
 
         public async Task<ImageSource> ConvertImage(StorageFile file)
@@ -32,7 +37,6 @@ namespace CognitiveServicesVisionLibrary
         public async Task<AnalysisResult> AnalyzeImage(StorageFile file)
         {
             var VisionServiceClient = GetVisionServiceClient();
-
             using (Stream imageFileStream = await file.OpenStreamForReadAsync())
             {
                 // Analyze the image for all visual features
@@ -52,11 +56,6 @@ namespace CognitiveServicesVisionLibrary
                 OcrResults ocrResult = await VisionServiceClient.RecognizeTextAsync(imageFileStream, language);
                 return ocrResult;
             }
-        }
-
-        private VisionServiceClient GetVisionServiceClient()
-        {
-            return new VisionServiceClient(_subscriptionKey, _apiRoot);
         }
 
         public string ExtractOutput(AnalysisResult analysisResult)
