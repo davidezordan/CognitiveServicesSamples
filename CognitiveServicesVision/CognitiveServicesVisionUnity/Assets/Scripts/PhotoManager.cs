@@ -67,7 +67,7 @@ public class PhotoManager : MonoBehaviour
             var fileName = string.Format(@"Image_{0:yyyy-MM-dd_hh-mm-ss-tt}.jpg", DateTime.Now);
             _currentImagePath = Application.persistentDataPath + "/" + fileName;
 
-            _capture.TakePhotoAsync(_currentImagePath, UnityEngine.XR.WSA.WebCam.PhotoCaptureFileOutputFormat.JPG, OnCapturedPhotoToDisk);
+            _capture.TakePhotoAsync(_currentImagePath, PhotoCaptureFileOutputFormat.JPG, OnCapturedPhotoToDisk);
         }
         else
         {
@@ -83,14 +83,6 @@ public class PhotoManager : MonoBehaviour
         getPicturesFolderAsync();
 #endif
     }
-
-    //public void StopCamera()
-    //{
-    //    if (isReady)
-    //    {
-    //        capture.StopPhotoModeAsync(OnPhotoModeStopped);
-    //    }
-    //}
 
     private async void OnCapturedPhotoToDisk(PhotoCapture.PhotoCaptureResult result)
     {
