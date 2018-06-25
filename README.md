@@ -1,6 +1,6 @@
 # CognitiveServicesSamples
 
-Sample code for the article "Analysing visual content using HoloLens, Computer Vision APIs, Unity and the Windows Mixed Reality Toolkit" - https://www.davidezordan.net/blog/?p=8234
+Sample code for the article "Analysing visual content using HoloLens, Computer Vision APIs, Unity and the Mixed Reality Toolkit" - https://www.davidezordan.net/blog/?p=8234
 
 Reuse some code from:<br />
 https://github.com/JannikLassahn/hololens-photocapture<br />
