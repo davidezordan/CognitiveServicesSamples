@@ -21,11 +21,11 @@ There are already some samples available for Cognitive Services APIs, so I decid
 
 I created a new Universal Windows app and library (<strong>CognitiveServicesVisionLibrary</strong>) to provide, respectively, a test UI and some reusable code that could be referenced later by the HoloLens experience.
 
-<img class="aligncenter size-full wp-image-8237" src="../wp-content/uploads/2018/02/02-Visual-Studio-Solution.png" alt="" width="985" height="780" />
+<img class="aligncenter size-full wp-image-8237" src="https://davide.dev/wp-content/uploads/2018/02/02-Visual-Studio-Solution.png" alt="" width="985" height="780" />
 
 The Computer Vision APIs can be accessed via the package <strong>Microsoft.ProjectOxford.Vision </strong>available on NuGet so I added a reference to both projects:
 
-<img class="aligncenter size-large wp-image-8238" src="../wp-content/uploads/2018/02/03-NuGet-Microsoft.ProjectOxford.Vision-1024x673.png" alt="" width="660" height="434" />
+<img class="aligncenter size-large wp-image-8238" src="https://davide.dev/wp-content/uploads/2018/02/03-NuGet-Microsoft.ProjectOxford.Vision-1024x673.png" alt="" width="660" height="434" />
 
 The test UI contains an image and two buttons: one for selecting a file using a <strong>FileOpenPicker</strong> and another for capturing a new image using the <strong>CameraCaptureUI</strong>. I decided to wrap these two actions in an <strong>InteractionsHelper</strong> class:
 {% highlight csharp %}
@@ -158,7 +158,7 @@ public class CognitiveVisionHelper
 
 I then launched the test UI, and the image was successfully analysed, and the results returned from the Computer Vision APIs, in this case identifying a building and several other tags like outdoor, city, park: great!
 
-<img class="aligncenter size-large wp-image-8239" src="../wp-content/uploads/2018/02/04-Running-the-UWP-test-app-1024x800.png" alt="" width="660" height="516" />
+<img class="aligncenter size-large wp-image-8239" src="https://davide.dev/wp-content/uploads/2018/02/04-Running-the-UWP-test-app-1024x800.png" alt="" width="660" height="516" />
 
 I also added a Speech Synthesizer playing the general description returned by the Cognitive Services call:
 
@@ -182,15 +182,15 @@ I downloaded the corresponding version of the Mixed Reality Toolkit from the rel
 
 Then, I applied the <strong>Mixed Reality Project settings</strong> using the corresponding item in the toolkit menu:
 
-<img class="aligncenter size-full wp-image-8241" src="../wp-content/uploads/2018/02/05-MRTK-Project-Settings.png" alt="" width="871" height="941" />
+<img class="aligncenter size-full wp-image-8241" src="https://davide.dev/wp-content/uploads/2018/02/05-MRTK-Project-Settings.png" alt="" width="871" height="941" />
 
 And selected the Scene Settings adding the <strong>Camera</strong>, <strong>Input Manager </strong>and <strong>Default Cursor</strong> prefabs:
 
-<img class="aligncenter size-full wp-image-8242" src="../wp-content/uploads/2018/02/06-MRTK-Scene-Settings.png" alt="" width="867" height="692" />
+<img class="aligncenter size-full wp-image-8242" src="https://davide.dev/wp-content/uploads/2018/02/06-MRTK-Scene-Settings.png" alt="" width="867" height="692" />
 
 And finally set the UWP capabilities as I needed access to the camera for retrieving the image, the microphone for speech recognition and internet client for communicating with Cognitive Services:
 
-<img class="aligncenter size-full wp-image-8243" src="../wp-content/uploads/2018/02/07-MRTK-UWP-Capabilities.png" alt="" width="870" height="943" />
+<img class="aligncenter size-full wp-image-8243" src="https://davide.dev/wp-content/uploads/2018/02/07-MRTK-UWP-Capabilities.png" alt="" width="870" height="943" />
 
 I was then ready to add the logic to retrieve the image from the camera, save it to the HoloLens device and then call the Computer Vision APIs.
 <h1>Creating the Unity Script</h1>
@@ -198,7 +198,7 @@ The <strong>CameraCaptureUI</strong> UWP API is not available in HoloLens, so I 
 
 First of all, I enabled the <strong>Experimental (.NET 4.6 Equivalent)</strong> Scripting Runtime version in the Unity player for using features like <strong>async/await. </strong>Then, I enabled the <strong>PicturesLibrary</strong> capability in the Publishing Settings to save the captured image to the device.
 
-<img class="aligncenter size-large wp-image-8244" src="../wp-content/uploads/2018/02/08-Player-settings-1024x549.png" alt="" width="660" height="354" />
+<img class="aligncenter size-large wp-image-8244" src="https://davide.dev/wp-content/uploads/2018/02/08-Player-settings-1024x549.png" alt="" width="660" height="354" />
 
 Then, I created a <em>Scripts</em> folder and added a new <strong>PhotoManager.cs</strong> script taking as a starting point the implementation available in <a href="https://github.com/JannikLassahn/hololens-photocapture" target="_blank" rel="noopener">this</a> GitHub project.
 
@@ -338,13 +338,13 @@ private async void OnCapturedPhotoToDisk(PhotoCapture.PhotoCaptureResult result)
 
 The code references the <strong>CognitiveServicesVisionLibrary</strong> UWP library created previously: to use it from Unity, I created a new <em>Plugins </em>folder in my project and ensured that the Build output of the Visual Studio library project was copied to this folder:
 
-<img class="aligncenter size-large wp-image-8245" src="../wp-content/uploads/2018/02/09-Visual-Studio-Project-Settings-1024x292.png" alt="" width="660" height="188" />And then set the import settings in Unity for the custom library:
+<img class="aligncenter size-large wp-image-8245" src="https://davide.dev/wp-content/uploads/2018/02/09-Visual-Studio-Project-Settings-1024x292.png" alt="" width="660" height="188" />And then set the import settings in Unity for the custom library:
 
-<img class="aligncenter size-large wp-image-8246" src="../wp-content/uploads/2018/02/10-Unity-import-settings-684x1024.png" alt="" width="660" height="988" />
+<img class="aligncenter size-large wp-image-8246" src="https://davide.dev/wp-content/uploads/2018/02/10-Unity-import-settings-684x1024.png" alt="" width="660" height="988" />
 
 And for the NuGet library too:
 
-<img class="aligncenter size-large wp-image-8247" src="../wp-content/uploads/2018/02/11-Unity-import-settings-CognitiveVision-855x1024.png" alt="" width="660" height="790" />
+<img class="aligncenter size-large wp-image-8247" src="https://davide.dev/wp-content/uploads/2018/02/11-Unity-import-settings-CognitiveVision-855x1024.png" alt="" width="660" height="790" />
 
 Nearly there! Let’s see now how I enabled Speech recognition and Tagalong/Billboard using the Mixed Reality Toolkit.
 <h1>Enabling Speech</h1>
@@ -354,17 +354,17 @@ In this way, a user can just simply say the work <strong>Describe</strong> to tr
 
 In the Unity project, I selected the <strong>InputManager</strong> object:
 
-<img class="aligncenter size-large wp-image-8249" src="../wp-content/uploads/2018/02/12-InputManager-672x1024.png" alt="" width="660" height="1006" />
+<img class="aligncenter size-large wp-image-8249" src="https://davide.dev/wp-content/uploads/2018/02/12-InputManager-672x1024.png" alt="" width="660" height="1006" />
 
 And added a new <strong>Speech Input Handler Component</strong> to it:
 
-<img class="aligncenter size-large wp-image-8250" src="../wp-content/uploads/2018/02/13-Speech-Input-Handler-824x1024.png" alt="" width="660" height="820" />
+<img class="aligncenter size-large wp-image-8250" src="https://davide.dev/wp-content/uploads/2018/02/13-Speech-Input-Handler-824x1024.png" alt="" width="660" height="820" />
 
 Then, I mapped the keyword <strong>Describe</strong> with the <strong>TakePhoto() </strong>method available in the <strong>PhotoManager.cs</strong> script already attached to the TextMesh that I previously named as <strong>Status Text Object</strong>.
 
 The last step required to enable <strong>Text to Speech</strong> for receiving the output: I simply added a <strong>Text to Speech</strong> component to my TextMesh:
 
-<img class="aligncenter size-large wp-image-8251" src="../wp-content/uploads/2018/02/14-Text-to-Speech-1024x386.png" alt="" width="660" height="249" />
+<img class="aligncenter size-large wp-image-8251" src="https://davide.dev/wp-content/uploads/2018/02/14-Text-to-Speech-1024x386.png" alt="" width="660" height="249" />
 
 And enabled the speech in the script using <strong>StartSpeaking()</strong>:
 
@@ -387,10 +387,10 @@ private void Speak(string description)
 
 I also added other two components available in the Mixed Reality Toolkit: <strong>Tagalong</strong> and <strong>Billboard</strong> to have the status text following me and not anchored to a specific location:
 
-<img class="aligncenter size-large wp-image-8252" src="../wp-content/uploads/2018/02/15-TagAlong-and-Billboard-1024x769.png" alt="" width="660" height="496" />
+<img class="aligncenter size-large wp-image-8252" src="https://davide.dev/wp-content/uploads/2018/02/15-TagAlong-and-Billboard-1024x769.png" alt="" width="660" height="496" />
 
 I was then able to generate the final package using Unity specifying the starting scene:
 
-<img class="aligncenter size-large wp-image-8253" src="../wp-content/uploads/2018/02/16-Generating-the-package-1024x991.png" alt="" width="660" height="639" />And then I deployed the solution to the HoloLens device and started extracting and categorising visual data using HoloLens, Camera, Speech and the Cognitive Services Computer Vision APIs.
+<img class="aligncenter size-large wp-image-8253" src="https://davide.dev/wp-content/uploads/2018/02/16-Generating-the-package-1024x991.png" alt="" width="660" height="639" />And then I deployed the solution to the HoloLens device and started extracting and categorising visual data using HoloLens, Camera, Speech and the Cognitive Services Computer Vision APIs.
 <h1>Conclusions</h1>
 The combination of Mixed Reality and Cognitive Services opens a new world of experiences combining the capabilities of HoloLens and all the power of the intelligent cloud. In this article, I’ve analysed the Computer Vision APIs, but a similar approach could be applied to augment Windows Mixed Reality apps and enrich them with the AI platform <a href="https://www.microsoft.com/en-gb/ai" target="_blank" rel="noopener">https://www.microsoft.com/en-gb/ai</a>.
