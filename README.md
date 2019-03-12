@@ -28,7 +28,7 @@ The Computer Vision APIs can be accessed via the package <strong>Microsoft.Proje
 <img class="aligncenter size-large wp-image-8238" src="https://davide.dev/wp-content/uploads/2018/02/03-NuGet-Microsoft.ProjectOxford.Vision-1024x673.png" alt="" width="660" height="434" />
 
 The test UI contains an image and two buttons: one for selecting a file using a <strong>FileOpenPicker</strong> and another for capturing a new image using the <strong>CameraCaptureUI</strong>. I decided to wrap these two actions in an <strong>InteractionsHelper</strong> class:
-{% highlight csharp %}
+<pre title="LUIS classes" class="lang:default decode:true ">
 public class InteractionsHelper
 {
     CognitiveVisionHelper _visionHelper;
@@ -84,7 +84,7 @@ public class InteractionsHelper
         return result;
     }
 }
-{% endhighlight %}
+</pre>
 
 I then worked on the shared library creating a helper class for processing the image using the Vision APIs available in <strong>Microsoft.ProjectOxford.Vision</strong> and parsing the result.
 
