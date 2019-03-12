@@ -204,7 +204,7 @@ Then, I created a <em>Scripts</em> folder and added a new <strong>PhotoManager.c
 
 The script can be attached to a <strong>TextMesh</strong> component visualising the status:
 
-{% highlight csharp %}
+<pre title="LUIS classes" class="lang:default decode:true ">
 using HoloToolkit.Unity;
 using System;
 using System.Linq;
@@ -242,11 +242,11 @@ public class PhotoManager : MonoBehaviour
         _pictureFolderPath = picturesStorage.SaveFolder.Path;
     }
 #endif
-{% endhighlight %}
+</pre>
 
 Initialising the <strong>PhotoCapture</strong> API available in Unity <a href="https://docs.unity3d.com/Manual/windowsholographic-photocapture.html" target="_blank" rel="noopener">https://docs.unity3d.com/Manual/windowsholographic-photocapture.html</a>
 
-{% highlight csharp %}
+<pre title="LUIS classes" class="lang:default decode:true ">
 public void StartCamera()
 {
     PhotoCapture.CreateAsync(true, OnPhotoCaptureCreated);
@@ -291,11 +291,11 @@ public void TakePhoto()
         SetStatus("The camera is not yet ready.");
     }
 }
-{% endhighlight %}
+</pre>
 
 Saving the photo to the pictures library folder and then passing it to the library created in the previous section:
 
-{% highlight csharp %}
+<pre title="LUIS classes" class="lang:default decode:true ">
 private async void OnCapturedPhotoToDisk(PhotoCapture.PhotoCaptureResult result)
 {
     if (result.success)
@@ -334,7 +334,7 @@ private async void OnCapturedPhotoToDisk(PhotoCapture.PhotoCaptureResult result)
         SetStatus("Failed to save photo");
     }
 }
-{% endhighlight %}
+</pre>
 
 The code references the <strong>CognitiveServicesVisionLibrary</strong> UWP library created previously: to use it from Unity, I created a new <em>Plugins </em>folder in my project and ensured that the Build output of the Visual Studio library project was copied to this folder:
 
@@ -368,7 +368,7 @@ The last step required to enable <strong>Text to Speech</strong> for receiving t
 
 And enabled the speech in the script using <strong>StartSpeaking()</strong>:
 
-{% highlight csharp %}
+<pre title="LUIS classes" class="lang:default decode:true ">
 …
   _textToSpeechComponent = GetComponent&lt;TextToSpeech&gt;();
 …
@@ -383,7 +383,7 @@ private void Speak(string description)
 {
     _textToSpeechComponent.StartSpeaking(description);
 }
-{% endhighlight %}
+</pre>
 
 I also added other two components available in the Mixed Reality Toolkit: <strong>Tagalong</strong> and <strong>Billboard</strong> to have the status text following me and not anchored to a specific location:
 
