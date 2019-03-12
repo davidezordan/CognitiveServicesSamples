@@ -90,7 +90,7 @@ I then worked on the shared library creating a helper class for processing the i
 
 <em>Tip: after creating the VisionServiceClient, I received an unauthorised error when specifying only the key: the error disappeared by also specifying the endpoint URL available in the Azure portal.</em>
 
-{% highlight csharp %}
+<pre title="LUIS classes" class="lang:csharp decode:true ">
 using Microsoft.ProjectOxford.Vision;
 using Microsoft.ProjectOxford.Vision.Contract;
 using System;
@@ -154,7 +154,7 @@ public class CognitiveVisionHelper
         return analysisResult.Description.Captions[0].Text;
     }
 }
-{% endhighlight %}
+</pre>
 
 I then launched the test UI, and the image was successfully analysed, and the results returned from the Computer Vision APIs, in this case identifying a building and several other tags like outdoor, city, park: great!
 
@@ -162,7 +162,7 @@ I then launched the test UI, and the image was successfully analysed, and the re
 
 I also added a Speech Synthesizer playing the general description returned by the Cognitive Services call:
 
-{% highlight csharp %}
+<pre title="LUIS classes" class="lang:default decode:true ">
 private async void Speak(string Text)
 {
     MediaElement mediaElement = this.media;
@@ -172,7 +172,7 @@ private async void Speak(string Text)
 
     mediaElement.Play();
 }
-{% endhighlight %}
+</pre>
 
 I then moved to HoloLens and started creating the interface using Unity, the Mixed Reality Toolkit and UWP.
 <h1>Creating the Unity HoloLens experience</h1>
