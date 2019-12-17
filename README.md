@@ -11,7 +11,7 @@ In this article, we’ll explore the steps I followed for creating a Unity appli
 <h1>Registering for Computer Vision APIs</h1>
 The first step was to navigate to the Azure portal <a href="https://portal.azure.com/" target="_blank" rel="noopener">https://portal.azure.com</a> and create a new <strong>Computer Vision API</strong> resource:
 
-<img class="aligncenter size-large wp-image-8236" src="../wp-content/uploads/2018/02/01-Azure-Portal-1024x717.png" alt="" width="660" height="462" />
+<img class="aligncenter size-large wp-image-8236" src="https://davide.dev/wp-content/uploads/2018/02/01-Azure-Portal-1024x717.png" alt="" width="660" height="462" />
 
 I noted down the <strong>Keys</strong> and <strong>Endpoint</strong> and started investigating how to approach the code for capturing images on HoloLens and sending them to the intelligent cloud for processing.
 
