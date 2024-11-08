@@ -1,4 +1,4 @@
-# [Analysing visual content using HoloLens, Computer Vision APIs, Unity and the Mixed Reality Toolkit](https://davide.dev/analysing-visual-content-using-hololens-computer-vision-apis-unity-and-the-windows-mixed-reality-toolkit/)
+# [Analysing visual content using HoloLens, Computer Vision APIs, Unity and the Mixed Reality Toolkit](https://davidezordan.github.io/analysing-visual-content-using-hololens-computer-vision-apis-unity-and-the-windows-mixed-reality-toolkit/)
 
 Reuse some code from:<br />
 https://github.com/JannikLassahn/hololens-photocapture<br />
@@ -158,7 +158,7 @@ public class CognitiveVisionHelper
 
 I then launched the test UI, and the image was successfully analysed, and the results returned from the Computer Vision APIs, in this case identifying a building and several other tags like outdoor, city, park: great!
 
-<img class="aligncenter size-large wp-image-8239" src="https://davide.dev/wp-content/uploads/2018/02/04-Running-the-UWP-test-app-1024x800.png" alt="" width="660" height="516" />
+<img class="aligncenter size-large wp-image-8239" src="https://davidezordan.github.io/wp-content/uploads/2018/02/04-Running-the-UWP-test-app-1024x800.png" alt="" width="660" height="516" />
 
 I also added a Speech Synthesizer playing the general description returned by the Cognitive Services call:
 
